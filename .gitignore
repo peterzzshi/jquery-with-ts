@@ -23,6 +23,9 @@ build/
 *.swo
 *~
 
+# WebStorm
+.idea/
+
 # OS generated files
 .DS_Store
 .DS_Store?
@@ -36,20 +39,18 @@ Thumbs.db
 logs
 *.log
 
+# Coverage
+coverage/
+*.lcov
+
 # Runtime data
 pids
 *.pid
 *.seed
 
-# Coverage directory used by tools like istanbul
-coverage/
-*.lcov
-
-# TypeScript cache
-*.tsbuildinfo
-
 # Optional npm cache directory
 .npm
+.eslintcache
 
 # Optional REPL history
 .node_repl_history

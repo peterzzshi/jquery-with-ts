@@ -1,37 +1,38 @@
 {
   "name": "jquery-with-ts",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "jQuery-like library built with TypeScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "tsx src/index.ts",
+    "dev": "tsx --watch src/index.ts",
     "build": "tsc",
-    "dev": "ts-node src/index.ts",
-    "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix",
-    "format": "prettier --write src/**/*.ts",
-    "check": "npm run lint && npm run format"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:types": "tsd",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "check": "npm run format:check && npm run lint && npm run test",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "prepare": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/peterzzshi/jquery-with-ts.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/peterzzshi/jquery-with-ts/issues"
-  },
-  "homepage": "https://github.com/peterzzshi/jquery-with-ts#readme",
-  "description": "",
+  "keywords": [
+    "jquery",
+    "typescript",
+    "dom"
+  ],
+  "author": "Peter Shi",
+  "license": "MIT",
   "devDependencies": {
-    "@types/node": "^24.0.14",
-    "@typescript-eslint/eslint-plugin": "^8.37.0",
-    "@typescript-eslint/parser": "^8.37.0",
-    "eslint": "^9.31.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.5.1",
-    "prettier": "^3.6.2",
-    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@types/node-fetch": "^2.6.12",
+    "node-fetch": "^3.3.2"
   }
 }
