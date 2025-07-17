@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 class SelectorResult {
     #elements;
 
@@ -38,6 +40,33 @@ class SelectorResult {
 
 function $(selector: string): any {
     return new SelectorResult(document.querySelectorAll(selector));
+}
+
+namespace $ {
+    export function ajax({ url, data, success, method = 'GET' }: {
+        url: string,
+        data?: any,
+        success?: (result: any) => void,
+        method?: 'GET' | 'POST'
+    }) {
+        const options: RequestInit = {
+            method: method,
+        };
+
+        if (data && method === 'POST') {
+            options.headers = { 'Content-Type': 'application/json' };
+            options.body = JSON.stringify(data);
+        }
+
+        return fetch(url, options)
+          .then(response => response.json())
+          .then(result => {
+              if (success) {
+                  success(result);
+              }
+          })
+          .catch(error => console.error('Error fetching data:', error));
+    }
 }
 
 export default $;
