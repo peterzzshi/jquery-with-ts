@@ -1,5 +1,5 @@
-import { $, SelectorResult } from './selector';
 import { ajax } from './ajax';
+import { $, SelectorResult } from './selector';
 import { JQueryFunction } from './types';
 
 const jQuery = $ as JQueryFunction;

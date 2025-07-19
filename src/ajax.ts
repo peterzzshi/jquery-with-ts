@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+
 import { AjaxOptions } from './types';
 
 export async function ajax(options: AjaxOptions): Promise<any> {
@@ -24,6 +25,8 @@ export async function ajax(options: AjaxOptions): Promise<any> {
 	} catch (err) {
 		if (error) {
 			error(err);
+		} else {
+			console.error('AJAX request failed:', err);
 		}
 	}
 }
