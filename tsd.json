@@ -7,8 +7,8 @@
     ],
     "strict": true
   },
-  "path": "typings",
-  "ref": "master",
-  "repo": "borisyankov/DefinitelyTyped",
+  "path": "src/__tests__",
+  "ref": "main",
+  "repo": "https://github.com/peterzzshi/jquery-with-ts",
   "version": "v4"
 }
